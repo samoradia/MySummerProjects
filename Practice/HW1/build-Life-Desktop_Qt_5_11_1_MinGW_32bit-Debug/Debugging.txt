@@ -1,0 +1,9 @@
+A bug I ran into while trying to update generations was that only one cell was being filled, at the max, for any given file that was inputted.
+This occured no matter how many cells were filled in prior generations, and at times, no cells at all were filled in the next generation.
+
+In order to sort through the bug, I went into debug mode and set break points before and after the for loop that was responible for counting 
+the number of occupied neighboring cells. i did this because I reasoned that the cells were not being occupied because, for some reason,
+the code did not put the number of occupied neighboring cells in the range to produce an occupied cell in the next generation.
+When I went through the loop, I noticed by counter variable kept increasing for each iteration of the loop,
+even though it should have been reset to 0 at the start of each iteration. I realized I never reset the variable to 0 after all the neighboring cells
+were checked, and when I added that line, the program updated correctly after each "tick".

@@ -1,0 +1,10 @@
+When creating Sierpinski's triangle, I ran into a problem where only part of the triangle would print for certain input values, while
+in other situations, the entire triangle printed perfectly. The first thing I did was put pauses between the drawPolarLine calls, so I could see
+what was printing and in what order. I realized this occurred when the size input was much greater than the x value. After checking my code,
+I realized this arose from the fact that I initially was subtracting the size from the x value in some recursive calls, which made the x value negative,
+causing the function to throw an exception. I also realized that even when the entire triangle printed, the top left corner was not at the 
+correct x,y coordinate, and infact the x,y pair that was inputted was where the first triangle that was drawn was. 
+
+To fix this problem, I realized I had to change the new x coordinated in the affected recursive calls so there was addition instead of 
+subtraction. To do this, I realized simply adding size/2 to each x value would make it so that all the subtractions would be canceled out,
+but still print triangles at the correct spots.

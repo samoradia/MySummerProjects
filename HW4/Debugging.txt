@@ -1,0 +1,9 @@
+A problem I ran into when I was programming the computer side for Boggle was that the score that was being outputted by the GUI was significantly higher 
+than what was expected. When I compared the list of words outputted, it matched example cases perfectly, which meant there was nothing wrong with finding 
+words. Additionally, the score function I wrote worked perfectly well for the human side, so I wasn't sure why I didn't work for the 
+computer side. I knew the bug must've been occuring in the base case, so I outputted the score in the base case if statement before 
+I added it and inspected the output. I noticed that the score was being added 8 times for each word.
+
+I realized since the words were being added to a set, duplicates were dealt with and did not appear in the console, but when the word parameter was already valid,
+each of the 8 recursive calls that explored the surrounding cells were reaching the base case. To fix this problem, I simply added a 
+condition that made it so the base case was evaluated only if the word was not already in the set of found computer words.

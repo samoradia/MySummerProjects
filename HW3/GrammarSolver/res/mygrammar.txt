@@ -1,0 +1,9 @@
+type::= bool|int|string|double|char
+var::=numb|x|word|count|foo|rep|sto|jar|input|output
+num::=1|2|3|4|5|6|7|8|9|0|num num
+eq::==
+cond::=if( var op var )|for( type var eq num end var op num end var data var)|while( var op var )|else if( var op var )|else
+op::=>|<|==|!=|
+end::=;
+data::=+|-|/|*|%
+line::=type var eq var end|cond { line }|type var eq num end

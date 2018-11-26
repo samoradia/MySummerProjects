@@ -1,0 +1,10 @@
+A bug I encountered while building wordladder was that when adding stacks to the queue, an infinite loop was created.
+I knew this bug was being caused in the makeLadder function, specifically in the while loop. In order to find the source of the problem,
+I printed out the word that was being changed by the for loop in the most nested for loop, and I noticed the word eventually got to "zzz" 
+(for a 3 letter word), which made me realize I needed to reset the word after the intermost for loop. Initially, I reset the word to 
+word1, which did not fix the infinite loop.
+
+I then printed out the values for the word again, and noticed (when I tested with cat) that the loop kept printing out iterations 
+of cat, never updating with a neighbor word.
+I then realized I needed to reset the word to the last value in the stack each time, and after doing that, the infinite loop ended and 
+updated correctly, printing out the correct ladder.

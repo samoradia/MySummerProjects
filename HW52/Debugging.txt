@@ -1,0 +1,8 @@
+A bug I ran into during implementing the doubly linked list in cache was when the get() function was called, the list ended up becoming
+an infinitely linked list, crashing the test cases. The first test case in cache ran, and was passed, but none of the other test 
+cases appeared. I went into debug mode and set a break point at the first put() statement. After going forward in the program, I
+noticed it crashed on the second get() statement. I assumed it was a problem with reordering my linked list, and after looking through 
+the changing of the list in debug mode, I saw the two values that were linked were the two that were most recently called with get().
+I realized that when I was moving the node to the front of the list, I set the hold pointer's next equal to start, and the start pointer's 
+next to hold, creating an infinite loop. 
+By changing it so that start->prev = hold instead of prev, the list no longer created an infinite loop. 

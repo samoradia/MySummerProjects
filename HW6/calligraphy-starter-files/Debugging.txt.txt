@@ -1,0 +1,7 @@
+A bug I ran into during optimization was that the total values for the times were not correct for any of the test cases. After printing 
+the times and calculating what the true time for completion should have been, I realized that the time that was being outputted was 
+not accounting for the time of the nodes at the top of the graph, or the ones with no dependancies. I realized this occured because 
+I only adding the time in the loop that had first checked to see if the node had any tasks dependant on it. 
+To fix this, I added the 
+of the task when I initially called the time helper, which was only called on nodes that had no dependencies.
+This fixed the time for some of the test cases, but not all of them.
